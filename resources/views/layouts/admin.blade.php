@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{ asset('assest\admin/css/main-style.css') }}">
     <!-- Page-Level CSS -->
     <link rel="stylesheet" href="{{ asset('assest\admin/plugins/morris/morris-0.4.3.min.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('assest\admin\plugins\dataTables\dataTables.bootstrap.css') }}">
 
     @yield('css')
     @yield('javascript')
@@ -20,10 +20,10 @@
 <body>
 <!--  wrapper -->
 <div id="wrapper">
-    @include('layouts.admin._header')
-    @include('layouts.admin._sidebar')
-    @yield('content')
-
+@include('admin._header')
+@include('admin._sidebar')
+@yield('content')
+@include('admin._footer')
 
 </body>
 

@@ -11,14 +11,14 @@ http://www.templatemo.com/preview/templatemo_367_shoes
     <meta name="keywords" content="" />
     <meta name="description" content="@yield('description')" />
     <meta name="keywords" content="@yield('keywords')" />
-    <link href="{{asset('assets//css/templatemo_style.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{asset('assest\templatemo_style.css')}}" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="{{asset('assets/front/css/nivo-slider.css')}}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{asset('assest\nivo-slider.css')}}" type="text/css" media="screen" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/front/css/ddsmoothmenu.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset('assest\front\css\ddsmoothmenu.css')}}" />
 
-    <script type="text/javascript" src="{{asset('assets/front/js/jquery.min.js')}}/"></script>
-    <script type="text/javascript" src="{{asset('assets/front//js/ddsmoothmenu.js')}}">
+    <script type="text/javascript" src="{{asset('assest\front\js\jquery.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assest\front\js\ddsmoothmenu.js')}}">
 
         /***********************************************
          * Smooth Navigational Menu- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
@@ -113,7 +113,7 @@ http://www.templatemo.com/preview/templatemo_367_shoes
                 <p><a href="#">Home</a> | <a href="#">Products</a> | <a href="#">About</a> | <a href="#">FAQs</a> | <a href="#">Checkout</a> | <a href="#">Contact Us</a>
                 </p>
 
-                Copyright © 2024 <a href="#">RY Company</a> <!-- Credit: www.templatemo.com --></div> <!-- END of templatemo_footer -->
+                Copyright © 2024 <a href="#">R&Y Company</a> <!-- Credit: www.templatemo.com --></div> <!-- END of templatemo_footer -->
 
         </div> <!-- END of templatemo_wrapper -->
     </div> <!-- END of templatemo_body_wrapper -->

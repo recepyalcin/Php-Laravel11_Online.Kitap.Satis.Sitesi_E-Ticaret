@@ -1,6 +1,6 @@
 @extends('layouts.front.fmaster')
 
-@section('title','Deneme Sayfa')
+@section('title','Ana Sayfa')
 
 @section('keywords','Deneme anahtar kelimeler')
 

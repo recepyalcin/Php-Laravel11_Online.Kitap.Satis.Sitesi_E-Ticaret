@@ -8,8 +8,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">
-            <img src="{{asset('assest\admin\img\logo.png')}}" alt="" />
+        <a class="navbar-brand" href="{{ route('admin_home') }}" >
+            <img src="{{asset('assest\admin\img\logo.png')}}" width="100px" alt=""  />
         </a>
     </div>
     <!-- end navbar-header -->
