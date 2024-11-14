@@ -1,4 +1,4 @@
-@extends('layouts.front.fmaster')
+@extends('front.fmaster')
 
 @section('title','Deneme Sayfa')
 

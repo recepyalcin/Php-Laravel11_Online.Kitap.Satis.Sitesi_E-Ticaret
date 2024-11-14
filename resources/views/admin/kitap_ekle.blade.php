@@ -44,7 +44,7 @@
                                                         <select class="form-control" name="kategori_id">
                                                             <option value="0" selected="selected">Ana Kategori</option>
                                                             @foreach($datalist as $rs)
-                                                                <option value="{{$rs->id}}">{{$rs->ad}}</option>
+                                                                <option value="{{$rs->id}}">{{\App\Http\Controllers\admin\KategoriController::getParentsTree($rs, $rs->ad)}}</option>
                                                             @endforeach
                                                         </select>
                                                         <div class="form-group">

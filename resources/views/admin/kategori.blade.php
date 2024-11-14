@@ -42,8 +42,8 @@
                                                 <thead>
                                                 <tr>
                                                     <th style="width:10%",>Id</th>
-                                                    <th style="width:10%">Parent</th>
-                                                    <th style="width:40%">Adı</th>
+                                                    <th style="width:25%">Parent</th>
+                                                    <th style="width:25%">Adı</th>
                                                     <th style="width:20%">Resim</th>
                                                     <th style="width:10%">Durum</th>
                                                     <th style="width:10%">Düzenle</th>
@@ -56,7 +56,9 @@
 
                                                     <tr class="odd gradeX">
                                                         <td>{{$rs->id}}</td>
-                                                        <td>{{$rs->parent_id}}</td>
+                                                        <td>
+                                                        {{\App\Http\Controllers\admin\KategoriController::getParentsTree($rs, $rs->ad)}}
+                                                        </td>
                                                         <td>{{$rs->ad}}</td>
                                                         <td>{{$rs->resim}}</td>
                                                         <td>{{$rs->durum}}</td>

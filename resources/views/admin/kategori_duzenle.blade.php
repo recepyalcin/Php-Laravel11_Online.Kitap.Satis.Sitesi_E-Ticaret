@@ -1,3 +1,4 @@
+
 @extends('layouts.admin')
 
 @section('title', 'Kategori Düzenle')
@@ -33,12 +34,17 @@
                                                     @csrf
                                                     <div class="form-group">
                                                         <label>Parent</label>
+
                                                         <select class="form-control" name="parent_id">
-                                                            <option value="0">Ana Kategori</option>
+
+                                                            <option value="0" selected="selected">Ana Kategori</option>
                                                             @foreach($datalist as $rs)
                                                                 <option value="{{$rs->id}}"
-                                                                        @if ($rs->id == $data->parent_id) selected="selected" @endif>{{$rs->ad}}</option>
+                                                                        @if ($rs->id == $data->parent_id)  selected="selected" @endif >
+                                                                    {{ \App\Http\Controllers\admin\KategoriController::getParentsTree($rs, $rs->ad) }}
+                                                                </option>
                                                             @endforeach
+
                                                         </select>
                                                         <div class="form-group">
                                                             <label>Adı</label>

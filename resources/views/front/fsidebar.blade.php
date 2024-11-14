@@ -1,55 +1,161 @@
 @section('fsidebar')
-<div id="sidebar" class="float_l">
-<div class="sidebar_box"><span class="bottom"></span>
-    <h3>Categories</h3>
-    <div class="content">
-        <ul class="sidebar_list">
-            <li class="first"><a href="#">Sed eget purus</a></li>
-            <li><a href="#">Vestibulum eleifend</a></li>
-            <li><a href="#">Nulla odio ipsum</a></li>
-            <li><a href="#">Suspendisse posuere</a></li>
-            <li><a href="#">Nunc a dui sed</a></li>
-            <li><a href="#">Curabitur ac mauris</a></li>
-            <li><a href="#">Mauris nulla tortor</a></li>
-            <li><a href="#">Nullam ultrices</a></li>
-            <li><a href="#">Nulla odio ipsum</a></li>
-            <li><a href="#">Suspendisse posuere</a></li>
-            <li><a href="#">Nunc a dui sed</a></li>
-            <li><a href="#">Curabitur ac mauris</a></li>
-            <li><a href="#">Mauris nulla tortor</a></li>
-            <li><a href="#">Nullam ultrices</a></li>
-            <li class="last"><a href="#">Sed eget purus</a></li>
-        </ul>
-    </div>
-</div>
-<div class="sidebar_box"><span class="bottom"></span>
-    <h3>Bestsellers </h3>
-    <div class="content">
-        <div class="bs_box">
-            <a href="#"><img src="{{asset('assest\front\images\templatemo_image_01.jpg')}}" alt="image" /></a>
-            <h4><a href="#">Donec nunc nisl</a></h4>
-            <p class="price">$10</p>
-            <div class="cleaner"></div>
-        </div>
-        <div class="bs_box">
-            <a href="#"><img src="{{asset('assest\front\images\templatemo_image_01.jpg')}}" alt="image" /></a>
-            <h4><a href="#">Lorem ipsum dolor sit</a></h4>
-            <p class="price">$12</p>
-            <div class="cleaner"></div>
-        </div>
-        <div class="bs_box">
-            <a href="#"><img src="{{asset('assest\front\images\templatemo_image_01.jpg')}}" alt="image" /></a>
-            <h4><a href="#">Phasellus ut dui</a></h4>
-            <p class="price">$20</p>
-            <div class="cleaner"></div>
-        </div>
-        <div class="bs_box">
-            <a href="#"><img src="{{asset('assest\front\images\templatemo_image_01.jpg')}}" alt="image" /></a>
-            <h4><a href="#">Vestibulum ante</a></h4>
-            <p class="price">$8</p>
-            <div class="cleaner"></div>
-        </div>
-    </div>
-</div>
-</div>
+    @php
+        $parentKategori = \App\Http\Controllers\HomeController::kategorilist()
+    @endphp
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!-- category nav -->
+
+                    <div class="left-sidebar">
+                        <h2>Category</h2>
+                        <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                            Sportswear
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="sportswear" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li><a href="#">
+                                                    @foreach($parentKategori as $rs)
+                                                        <li  class="panel-collapse collapse">
+                                                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">{{$rs->ad}} <i class="fa fa-angle-right"></i></a>
+                                                            <div class="panel-body">
+                                                                <ul>
+
+                                                                @if(count($rs->children))
+                                                                    @include('front.kategoritree',['children' => $rs->children])
+                                                                @endif
+
+                                                            </div>
+                                                        </li>
+                                                    @endforeach
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                            Mens
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="mens" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li><a href="#">Fendi</a></li>
+                                            <li><a href="#">Guess</a></li>
+                                            <li><a href="#">Valentino</a></li>
+                                            <li><a href="#">Dior</a></li>
+                                            <li><a href="#">Versace</a></li>
+                                            <li><a href="#">Armani</a></li>
+                                            <li><a href="#">Prada</a></li>
+                                            <li><a href="#">Dolce and Gabbana</a></li>
+                                            <li><a href="#">Chanel</a></li>
+                                            <li><a href="#">Gucci</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                                            <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                                            Womens
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="womens" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li><a href="#">Fendi</a></li>
+                                            <li><a href="#">Guess</a></li>
+                                            <li><a href="#">Valentino</a></li>
+                                            <li><a href="#">Dior</a></li>
+                                            <li><a href="#">Versace</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">Kids</a></h4>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">Fashion</a></h4>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">Households</a></h4>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">Interiors</a></h4>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">Clothing</a></h4>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">Bags</a></h4>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title"><a href="#">Shoes</a></h4>
+                                </div>
+                            </div>
+                        </div><!--/category-products-->
+
+                        <div class="brands_products"><!--brands_products-->
+                            <h2>Brands</h2>
+                            <div class="brands-name">
+                                <ul class="nav nav-pills nav-stacked">
+                                    <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
+                                    <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
+                                    <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
+                                    <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
+                                    <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
+                                    <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
+                                    <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+                                </ul>
+                            </div>
+                        </div><!--/brands_products-->
+
+                        <div class="price-range"><!--price-range-->
+                            <h2>Price Range</h2>
+                            <div class="well text-center">
+                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
+                                <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                            </div>
+                        </div><!--/price-range-->
+
+                        <div class="shipping text-center"><!--shipping-->
+                            <img src="images/home/shipping.jpg" alt="" />
+                        </div><!--/shipping-->
+
+                    </div>
+                </div>
+
 @endsection

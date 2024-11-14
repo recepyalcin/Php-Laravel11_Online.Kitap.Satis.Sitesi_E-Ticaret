@@ -44,8 +44,9 @@
                                                         <select class="form-control" name="kategori_id">
 
                                                             @foreach($datalist as $rs)
-                                                                <option value="{{$rs->id}}"
-                                                                        @if ($rs->id == $data->kategori_id) selected="selected" @endif>{{$rs->ad}}</option>
+                                                                <option value="{{$rs->id}}" @if ($rs->id == $data->kategori_id) selected="selected" @endif>
+                                                               {{\App\Http\Controllers\admin\KategoriController::getParentsTree($rs, $rs->ad)}}
+                                                                </option>
                                                             @endforeach
                                                         </select>
                                                         <div class="form-group">
@@ -109,7 +110,7 @@
 
                                                         <div class="form-group">
                                                             <label>Resim Ekle</label>
-                                                            <input type="file" name="resim" value="{{$data->resim}}" class="form-control">
+                                                            <input type="file" name="resim" class="form-control">
                                                             @if ($data->resim)
                                                                 <img src="{{ Storage::url($data->resim)}}" height="100" alt="">
                                                             @endif

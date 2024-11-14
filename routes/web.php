@@ -5,11 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 
 Route::get('/', function () {
- return view('home');
+ return view('/home');
 });
 
 Route::get('/home', function () {
-    return view('home.index');
+    return view('\front\home');
 });
 
 
@@ -44,7 +44,7 @@ Route::middleware([
 
 //Admin
 
-Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home');
+Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin_home')->middleware('auth');
 # Kategori
 Route::get('/admin/kategori', [App\Http\Controllers\Admin\KategoriController::class, 'index'])->name('admin_kategori');
 Route::get('/admin/kategori/ekle', [App\Http\Controllers\Admin\KategoriController::class, 'add'])->name('admin_kategori_ekle');
@@ -83,4 +83,8 @@ Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index']
 Route::get('/admin/login', [HomeController::class, 'login'])->name('admin_login');
 Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+
+//Test
+Route::get('home/test', [App\Http\Controllers\HomeController::class, 'test'])->name('test');
+
 

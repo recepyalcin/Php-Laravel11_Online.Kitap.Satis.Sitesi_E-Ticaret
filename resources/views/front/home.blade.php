@@ -1,4 +1,4 @@
-@extends('layouts.front.fmaster')
+@extends('front.fmaster')
 
 @section('title','Ana Sayfa')
 
@@ -6,15 +6,22 @@
 
 @section('description','Deneme açıklama')
 
-
-@section('fsidebar')
-    @include('fsidebar')
+@section('fheader')
+    @include('front.fheader')
 @endsection
 
 @section('fslider')
-    @include('fslider')
+    @include('front.fslider')
+@endsection
+
+@section('fsidebar')
+    @include('front.fsidebar')
 @endsection
 
 @section('content')
-    @include('content')
+    @include('front.content')
+@endsection
+
+@section('ffooter')
+    @include('front.ffooter')
 @endsection

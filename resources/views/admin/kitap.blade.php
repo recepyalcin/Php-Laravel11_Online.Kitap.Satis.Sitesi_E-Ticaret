@@ -48,7 +48,7 @@
                                                     <th>Miktar</th>
                                                     <th>Fiyat</th>
                                                     <th>Resim</th>
-                                                    <th>Resim Galerisi</th>
+                                                    <th>Galeri</th>
                                                     <th>Durum</th>
                                                     <th>Düzenle</th>
                                                     <th>Sil</th>
@@ -59,24 +59,26 @@
                                                 @foreach($datalist as $rs)
 
                                                     <tr class="odd gradeX">
-                                                        <td>{{$rs->id}}</td>
-                                                        <td>{{$rs->kategori_id}}</td>
+                                                        <td style="text-align: center">{{$rs->id}}</td>
+                                                        <td>
+                                                            {{\App\Http\Controllers\admin\KategoriController::getParentsTree($rs->kategori, $rs->kategori->ad)}}
+                                                        </td>
                                                         <td>{{$rs->ad}}</td>
                                                         <td>{{$rs->yazar}}</td>
-                                                        <td>{{$rs->stok}}</td>
-                                                        <td>{{$rs->satis_fiyat}}</td>
-                                                        <td>
+                                                        <td style="text-align: center">{{$rs->stok}}</td>
+                                                        <td style="text-align: center">{{$rs->satis_fiyat}}</td>
+                                                        <td style="text-align: center">
                                                             @if($rs->resim)
                                                                 <img src="{{Storage::url($rs->resim)}}" height="30" alt="">
                                                             @endif
                                                         </td>
-                                                        <td><a href="{{route('admin_resim_ekle',['kitap_id' => $rs->id])}}" ><img src="{{asset('assest\admin\icon\galeri.png')}}" height="35"></a>
+                                                        <td style="text-align: center"><a href="{{route('admin_resim_ekle',['kitap_id' => $rs->id])}}" ><img src="{{asset('assest\admin\icon\galeri.png')}}" height="35"></a>
                                                         </td>
 
-                                                            <td>{{$rs->durum}}</td>
+                                                            <td style="text-align: center">{{$rs->durum}}</td>
 
-                                                        <td><a href="{{route('admin_kitap_duzenle', ['id' => $rs->id])}}"><img src="{{asset('assest\admin\icon\duzenle.png')}}" height="25"> </a></td>
-                                                        <td><a href="{{route('admin_kitap_sil', ['id' => $rs->id])}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" ><img src="{{asset('assest\admin\icon\sil.png')}}" height="30"></a></td>
+                                                        <td style="text-align: center"><a href="{{route('admin_kitap_duzenle', ['id' => $rs->id])}}"><img src="{{asset('assest\admin\icon\duzenle.png')}}" height="25"> </a></td>
+                                                        <td style="text-align: center"><a href="{{route('admin_kitap_sil', ['id' => $rs->id])}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" ><img src="{{asset('assest\admin\icon\sil.png')}}" height="30"></a></td>
 
                                                     </tr>
                                                 @endforeach
