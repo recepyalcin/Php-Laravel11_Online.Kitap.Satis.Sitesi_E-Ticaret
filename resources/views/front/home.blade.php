@@ -1,10 +1,10 @@
 @extends('front.fmaster')
 
-@section('title','Ana Sayfa')
+@section('title', $ayar->baslik)
 
-@section('keywords','Deneme anahtar kelimeler')
+@section('keywords' ){{$ayar->keywords}} @endsection
 
-@section('description','Deneme açıklama')
+@section('description') {{$ayar->aciklama}} @endsection
 
 @section('fheader')
     @include('front.fheader')

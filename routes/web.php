@@ -1,16 +1,22 @@
 <?php
 
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\HomeController as Home;
 
 Route::get('/', function () {
- return view('/home');
+    return view('/home');
 });
 
-Route::get('/home', function () {
-    return view('\front\home');
-});
+Route::get('/', [Home::class, 'index'])->name('home');
+
+Route::get('/home', [Home::class, 'index'])->name('homepage');
+Route::get('/hakkimizda', [Home::class, 'aboutus'])->name('hakkimizda');
+Route::get('/referanlar', [Home::class, 'references'])->name('referanlar');
+Route::get('/sss', [Home::class, 'faq'])->name('sss');
+Route::get('/iletisim', [Home::class, 'contact'])->name('iletisim');
 
 
 Route::middleware([
@@ -74,6 +80,14 @@ Route::prefix('admin/resim')->group(function () {
     Route::get('goster', [\App\Http\Controllers\Admin\ImageController::class, 'show'])->name('admin_resim_goster');
 });
 # Ürün
+
+//User
+Route::prefix('user')->group(function () {
+Route::get('/', [UserController::class, 'index'])->name('myprofile');
+
+});
+
+#User
 // Ayar
 Route::get('admin/ayar', [\App\Http\Controllers\Admin\AyarController::class, 'index'])->name('admin_ayar');
 Route::post('admin/ayar/guncelle', [\App\Http\Controllers\Admin\AyarController::class, 'update'])->name('admin_ayar_guncelle');
@@ -83,6 +97,8 @@ Route::get('/admin', [App\Http\Controllers\Admin\HomeController::class, 'index']
 Route::get('/admin/login', [HomeController::class, 'login'])->name('admin_login');
 Route::post('/admin/logincheck', [HomeController::class, 'logincheck'])->name('admin_logincheck');
 Route::get('/logout', [HomeController::class, 'logout'])->name('logout');
+
+
 
 //Test
 Route::get('home/test', [App\Http\Controllers\HomeController::class, 'test'])->name('test');

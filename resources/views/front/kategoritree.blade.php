@@ -1,13 +1,19 @@
-@foreach($children as $subkategori)
-    <ul>
-        @if(count($subkategori->children))
-            <li >   {{$subkategori->ad}}</li>
-            <ul>
-                @include('front.kategoritree',['children' => $subkategori->children])
-            </ul>
+<!-- category nav -->
 
-        @else
-            <li><a href="#">{{$subkategori->ad}}</a> </li>
-        @endif
-    </ul>
+@php
+    $parentKategori = \App\Http\Controllers\HomeController::kategorilist()
+@endphp
+
+
+@foreach($parentKategori as $rs)
+    <li  class="panel-collapse collapse">
+        <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">{{$rs->ad}} <i class="fa fa-angle-right"></i></a>
+        <div class="panel-body">
+
+            @if(count($rs->children))
+                @include('front.kategoritree',['children' => $rs->children])
+            @endif
+
+        </div>
+    </li>
 @endforeach

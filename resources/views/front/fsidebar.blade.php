@@ -23,22 +23,11 @@
                                 <div id="sportswear" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul>
-                                            <li><a href="#">
-                                                    @foreach($parentKategori as $rs)
-                                                        <li  class="panel-collapse collapse">
-                                                            <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">{{$rs->ad}} <i class="fa fa-angle-right"></i></a>
-                                                            <div class="panel-body">
-                                                                <ul>
-
-                                                                @if(count($rs->children))
-                                                                    @include('front.kategoritree',['children' => $rs->children])
-                                                                @endif
-
-                                                            </div>
-                                                        </li>
-                                                    @endforeach
-                                                </a>
-                                            </li>
+                                            <li><a href="#">Nike </a></li>
+                                            <li><a href="#">Under Armour </a></li>
+                                            <li><a href="#">Adidas </a></li>
+                                            <li><a href="#">Puma</a></li>
+                                            <li><a href="#">ASICS </a></li>
                                         </ul>
                                     </div>
                                 </div>
