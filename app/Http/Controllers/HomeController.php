@@ -30,7 +30,8 @@ public function index()
 
     public function aboutus()
     {
-        return view('front.hakkimizda');
+        $ayar = Ayar::first();
+        return view('front.hakkimizda', ['ayar'=>$ayar]);
     }
     public function references()
     {

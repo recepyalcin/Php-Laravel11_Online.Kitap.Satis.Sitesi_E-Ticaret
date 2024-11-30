@@ -77,7 +77,7 @@
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
                                 <li><a href="{{route('homepage')}}" class="active">Home</a></li>
-                                <li><a href="{{route('homepage')}}" >Hakkımızda</a></li>
+                                <li><a href="{{route('hakkimizda')}}" >Hakkımızda</a></li>
                                 <li><a href="{{route('homepage')}}" >Kampanyalar</a></li>
                                 <li><a href="{{route('homepage')}}" >Yeni Kitaplar</a></li>
                                 <li><a href="{{route('homepage')}}" >Referanslar</a></li>
