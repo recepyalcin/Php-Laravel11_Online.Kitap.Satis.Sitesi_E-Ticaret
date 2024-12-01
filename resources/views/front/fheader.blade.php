@@ -80,9 +80,9 @@
                                 <li><a href="{{route('hakkimizda')}}" >Hakkımızda</a></li>
                                 <li><a href="{{route('homepage')}}" >Kampanyalar</a></li>
                                 <li><a href="{{route('homepage')}}" >Yeni Kitaplar</a></li>
-                                <li><a href="{{route('homepage')}}" >Referanslar</a></li>
+                                <li><a href="{{route('referanslar')}}" >Referanslar</a></li>
                                 <li><a href="{{route('homepage')}}" >SSS</a></li>
-                                <li><a href="{{route('homepage')}}" >İletişim</a></li>
+                                <li><a href="{{route('iletisim')}}" >İletişim</a></li>
                             </ul>
                         </div>
                     </div>

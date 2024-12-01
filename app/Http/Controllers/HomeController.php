@@ -35,18 +35,21 @@ public function index()
     }
     public function references()
     {
-        return view('front.referanslar');
+        $ayar = Ayar::first();
+        return view('front.referanslar', ['ayar'=>$ayar]);
     }
-    public function faq()
-    {
-        return view('front.sss');
-    }
+
     public function contact()
     {
-        return view('front.iletisim');
+        $ayar = Ayar::first();
+        return view('front.iletisim', ['ayar'=>$ayar]);
     }
 
+    public function faq()
+    {
 
+        return view('front.sss');
+    }
 
 
 

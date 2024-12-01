@@ -14,7 +14,7 @@ Route::get('/', [Home::class, 'index'])->name('home');
 
 Route::get('/home', [Home::class, 'index'])->name('homepage');
 Route::get('/hakkimizda', [Home::class, 'aboutus'])->name('hakkimizda');
-Route::get('/referanlar', [Home::class, 'references'])->name('referanlar');
+Route::get('/referanslar', [Home::class, 'references'])->name('referanslar');
 Route::get('/sss', [Home::class, 'faq'])->name('sss');
 Route::get('/iletisim', [Home::class, 'contact'])->name('iletisim');
 
