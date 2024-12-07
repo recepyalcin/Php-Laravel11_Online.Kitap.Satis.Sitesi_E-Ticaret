@@ -46,8 +46,12 @@
             <li class="nav-item"> </li>
             <li class="nav-item">
                 <a href="{{route('admin_ayar')}}" class="nav-link">
-
                     <p class="text"><img src="{{asset('assest\admin\icon\ayar.png')}}" height="20">  Ayarlar</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('admin_mesaj')}}" class="nav-link">
+                    <p class="text"><img src="{{asset('assest\admin\icon\mesaj.png')}}" height="20"> Mesajlar </p>
                 </a>
             </li>
             <li class="nav-item">

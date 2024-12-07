@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Ayar;
 use App\Models\Kategori;
+use App\Models\Mesajlar;
+use http\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,6 +45,18 @@ public function index()
     {
         $ayar = Ayar::first();
         return view('front.iletisim', ['ayar'=>$ayar]);
+    }
+
+    public function sendmessage(Request $request )
+    {
+        $data = new Mesajlar();
+        $data->isim = $request->input('isim');
+        $data->email = $request->input('email');
+        $data->telefon = $request->input('telefon');
+        $data->konu = $request->input('konu');
+        $data->mesaj = $request->input('mesaj');
+        $data->save();
+        return redirect('iletisim')->with('success', 'Mesajınız kaydedilmiştir. Teşekkür ederiz');
     }
 
     public function faq()

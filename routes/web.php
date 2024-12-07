@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\MesajController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
@@ -17,7 +18,7 @@ Route::get('/hakkimizda', [Home::class, 'aboutus'])->name('hakkimizda');
 Route::get('/referanslar', [Home::class, 'references'])->name('referanslar');
 Route::get('/sss', [Home::class, 'faq'])->name('sss');
 Route::get('/iletisim', [Home::class, 'contact'])->name('iletisim');
-
+Route::post('/mesajgonder', [Home::class, 'sendmessage'])->name('mesajgonder');
 
 Route::middleware([
     'auth:sanctum',
@@ -71,6 +72,15 @@ Route::prefix('admin/kitap')->group(function () {
     Route::post('guncelle/{id}f', [\App\Http\Controllers\Admin\KitapController::class, 'update'])->name('admin_kitap_guncelle');
     Route::get('sil/{id}', [\App\Http\Controllers\Admin\KitapController::class, 'destroy'])->name('admin_kitap_sil');
     Route::get('goster', [\App\Http\Controllers\Admin\KitapController::class, 'show'])->name('admin_kitap_goster');
+});
+
+Route::prefix('admin/mesaj')->group(function () {
+    // Route assigned name "admin.users"...
+    Route::get('/', [MesajController::class, 'index'])->name('admin_mesaj');
+    Route::get('duzenle/{id}', [MesajController::class, 'edit'])->name('admin_mesaj_duzenle');
+    Route::post('guncelle/{id}', [MesajController::class, 'update'])->name('admin_mesaj_guncelle');
+    Route::get('sil/{id}', [MesajController::class, 'destroy'])->name('admin_mesaj_sil');
+    Route::get('goster', [MesajController::class, 'show'])->name('admin_mesaj_goster');
 });
 
 Route::prefix('admin/resim')->group(function () {
