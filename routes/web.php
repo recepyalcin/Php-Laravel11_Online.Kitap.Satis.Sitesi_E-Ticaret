@@ -18,7 +18,10 @@ Route::get('/hakkimizda', [Home::class, 'aboutus'])->name('hakkimizda');
 Route::get('/referanslar', [Home::class, 'references'])->name('referanslar');
 Route::get('/sss', [Home::class, 'faq'])->name('sss');
 Route::get('/iletisim', [Home::class, 'contact'])->name('iletisim');
-Route::post('/mesajgonder', [Home::class, 'sendmessage'])->name('mesajgonder');
+Route::post('/mesajgonder', [Home::class, 'sendmessage'])->name('kitap');
+Route::get('/kitap/{id}/{slug}', [Home::class, 'kitap'])->name('kitap');
+Route::get('/kitapkategorileri/{id}', [Home::class, 'kitapkategorileri'])->name('kitapkategorileri');
+//Route::get('/sepetekle/{id}', [Home::class, 'index'])->whreNumber(parametre:'id')->name('sepetekle');
 
 Route::middleware([
     'auth:sanctum',

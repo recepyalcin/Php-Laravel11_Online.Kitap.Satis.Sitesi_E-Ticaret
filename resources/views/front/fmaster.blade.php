@@ -15,17 +15,19 @@
     <link rel="stylesheet" href="{{ asset('assest\front\css\animate.css') }}">
     <link rel="stylesheet" href="{{ asset('assest\front\css\main.css') }}">
     <link rel="stylesheet" href="{{ asset('assest\front\css\responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('assest\front\css\/price-range.css') }}">
 
 
     <script src="{{ asset('assest\front\js\html5shiv.js') }}"></script>
     <script src="{{ asset('assest\front\js\respond.min.js') }}"></script>
+    <script src="{{ asset('assest\front\js\jquery.js') }}"></script>
+    <script src="{{ asset('assest\front\js\price-range.js') }}"></script>
+    <script src="{{ asset('assest\front\js\query.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('assest\front\js\bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assest\front\js\jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('assest\front\js\main.js') }}"></script>
 
 
-    <link rel="shortcut icon" href="images/ico/favicon.ico">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 </head><!--/head-->
 
 <body>

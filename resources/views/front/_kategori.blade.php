@@ -19,7 +19,7 @@
                                     <div class="panel-body">
 
                                         @if(count($rs->children))
-                                            @include('kategoritree',['children' => $rs->children])
+                                            @include('front.kategoritree',['children' => $rs->children])
                                         @endif
 
                                     </div>
