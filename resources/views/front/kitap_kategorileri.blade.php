@@ -9,6 +9,7 @@
     @include('front.fsidebar')
 @endsection
 @section('content')
+
     <section>
         <div class="container">
             <div class="row">

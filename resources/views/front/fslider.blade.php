@@ -13,19 +13,49 @@
                         <div class="carousel-inner">
                             <div class="item active">
                                 <div class="col-sm-12">
-                                    <img src="{{asset('assest\front\images\slider\slider1.jpg')}}"  alt="" />
+                                    @foreach($slider1 as $rs)
+                                        <div class="col-sm-3">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" alt="" /> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
                             <div class="item">
-                                <<div class="col-sm-12">
-                                    <img src="{{asset('assest\front\images\slider\slider2.jpg')}}"  alt="" />
+                                <div class="col-sm-12">
+                                    @foreach($slider2 as $rs)
+                                        <div class="col-sm-3">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" alt="" /> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
 
                             <div class="item" >
-                                    <<div class="col-sm-12">
-                                        <img src="{{asset('assest\front\images\slider\slider3.jpg')}}"  alt="" />
-                                    </div>
+                                <div class="col-sm-12">
+                                    @foreach($slider3 as $rs)
+                                        <div class="col-sm-3">
+                                            <div class="product-image-wrapper">
+                                                <div class="single-products">
+                                                    <div class="productinfo text-center">
+                                                        <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" alt="" /> </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
                             </div>
 
                         </div>

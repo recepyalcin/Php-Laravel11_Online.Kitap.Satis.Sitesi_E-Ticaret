@@ -57,4 +57,3 @@
 <script src="{{ asset('assest\front\js\main') }}"></script>
 
 </body>
-</html>

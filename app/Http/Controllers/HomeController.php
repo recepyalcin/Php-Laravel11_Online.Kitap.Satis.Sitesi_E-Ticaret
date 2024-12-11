@@ -29,12 +29,16 @@ class HomeController extends Controller
     public function index()
     {
         $ayar = Ayar::first();
-        $slider= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(4)->get();
-        $daily= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(9)->inRandomOrder()->get();
+        $slider1= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(4)->inRandomOrder()->get();
+        $slider2= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(4)->inRandomOrder()->get();
+        $slider3= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(4)->inRandomOrder()->get();
+        $daily= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(8)->inRandomOrder()->get();
         $last= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(3)->orderByDesc('id')->get();
         $data= [
             'ayar' => $ayar,
-            'slider' => $slider,
+            'slider1' => $slider1,
+            'slider2' => $slider2,
+            'slider3' => $slider3,
             'daily' => $daily,
             'last' => $last,
             'page'=>'home',
@@ -54,8 +58,11 @@ class HomeController extends Controller
     public function kitap($id, $slug)
     {
         $data = Kitap::find($id);
-        print_r($data);
-        exit();
+        $last= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(3)->inRandomOrder()->get();
+        $last1= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->limit(3)->inRandomOrder()->get();
+        $last2= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->where('kategori_id', '<>', $data->kategori_id)->limit(4)->inRandomOrder()->get();
+        $last3= Kitap::select('id', 'ad', 'resim', 'satis_fiyat', 'slug')->where('kategori_id', '<>', $data->kategori_id)->limit(4)->inRandomOrder()->get();
+        return view('front.kitap_detay',['data'=>$data, 'last'=>$last, 'last1'=>$last1, 'last2'=>$last2, 'last3'=>$last3]);
     }
 
     public function aboutus()
