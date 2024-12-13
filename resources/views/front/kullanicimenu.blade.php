@@ -5,7 +5,7 @@
         <li><a href="{{route('myprofile')}}"> Profilim</a></li>
         <li><a href="#"> Siparişlerim</a></li>
         <li><a href="#"> Yorumlarım</a></li>
-        <li><a href="#"> Sepetim</a></li>
+        <li><a href="{{route('user_sepet')}}"> Sepetim</a></li>
         <li><a href="#"> Mesajlarım</a></li>
         <li><a href="{{route('logout')}}"> Çıkış</a></li>
 

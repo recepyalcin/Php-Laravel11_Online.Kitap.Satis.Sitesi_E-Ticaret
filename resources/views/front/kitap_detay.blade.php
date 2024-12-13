@@ -20,8 +20,7 @@
                         <div class="product-details"><!--product-details-->
                             <div class="col-sm-4">
                                 <div class="view-product">
-                                    <img src="{{Storage::url($data->resim)}}"  alt=""/>
-                                    <h3>ZOOM</h3>
+                                    <img src="{{Storage::url($data->resim)}}" alt=""/>
                                 </div>
                                 <div id="similar-product" class="carousel slide" data-ride="carousel">
 
@@ -56,17 +55,21 @@
                             <div class="col-sm-7">
                                 <div class="product-information"><!--/product-information-->
                                     <h2>{{$data->ad}}</h2>
-                                    <img src="images/product-details/rating.png" alt=""/>
                                     <span>
-									<span>{{$data->satis_fiyat}} ₺</span>
-									<label>Miktar:</label>
-                                        <input type="number" min="1" max="10" value="1"/>
 
-									<button type="button" class="btn btn-fefault cart">
+                                        <form action="{{route('user_sepet_ekle',['id' => $data->id])}}" method="post">
+                                    @csrf
+                                            <span>{{$data->satis_fiyat}} ₺</span>
+									<label>Miktar:</label>
+                                        <input class="number" name="miktar" type="number" value="1"
+                                               max="{{$data->stok}}">
+                                    <button type="submit" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Sepete Ekle
 									</button>
-								</span>
+                                        </form>
+
+                                    </span>
                                     <div class="form-group">
                                         <textarea
                                             class="col-lg-12"
@@ -97,9 +100,11 @@
 
                                                             <h2>{{$rs->satis_fiyat}} ₺</h2>
                                                             <p>{{$rs->ad}}</p>
-                                                            <button type="button" class="btn btn-default add-to-cart"><i
-                                                                    class="fa fa-shopping-cart"></i>Sepete Ekle
-                                                            </button>
+                                                            <form action="{{route('user_sepet_ekle',['id' => $rs->id])}}" method="post">
+                                                                @csrf
+                                                                <input name="miktar" type="hidden" value="1">
+                                                                <button type="submit"  class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
+                                                            </form>
 
                                                         </div>
                                                     </div>
@@ -121,9 +126,11 @@
 
                                                             <h2>{{$rs->satis_fiyat}} ₺</h2>
                                                             <p>{{$rs->ad}}</p>
-                                                            <button type="button" class="btn btn-default add-to-cart"><i
-                                                                    class="fa fa-shopping-cart"></i>Sepete Ekle
-                                                            </button>
+                                                            <form action="{{route('user_sepet_ekle',['id' => $rs->id])}}" method="post">
+                                                                @csrf
+                                                                <input name="miktar" type="hidden" value="1">
+                                                                <button type="submit"  class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
+                                                            </form>
 
                                                         </div>
                                                     </div>

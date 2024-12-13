@@ -13,4 +13,11 @@ class Kitap extends Model
     {
         return $this->belongsTo(Kategori::class);
     }
+
+
+    public function sepet()
+    {
+        return $this->hasMany( Sepet::class);
+    }
+
 }

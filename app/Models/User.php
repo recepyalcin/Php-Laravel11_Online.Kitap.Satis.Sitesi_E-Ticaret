@@ -64,4 +64,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function sepet()
+    {
+        return $this->hasMany(Sepet::class);
+    }
 }

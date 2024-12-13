@@ -10,17 +10,15 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" alt="" /> </a>
+                                        <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" height="290" alt="" /> </a>
                                         <h2>{{$rs->satis_fiyat}} ₺</h2>
                                         <p>{{$rs->ad}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <form action="{{route('user_sepet_ekle',['id' => $rs->id])}}" method="post">
+                                            @csrf
+                                            <input name="miktar" type="hidden" value="1">
+                                            <button type="submit"  class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
+                                        </form>
                                     </div>
-                                </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -45,15 +43,14 @@
                                         <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" alt="" /> </a>
                                         <h2>{{$rs->satis_fiyat}} ₺</h2>
                                         <p>{{$rs->ad}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <form action="{{route('user_sepet_ekle',['id' => $rs->id])}}" method="post">
+                                            @csrf
+                                            <input name="miktar" type="hidden" value="1">
+                                            <button type="submit"  class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                    </ul>
-                                </div>
+
                             </div>
                         </div>
                         @endforeach
@@ -66,14 +63,12 @@
                                         <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" alt="" /> </a>
                                         <h2>{{$rs->satis_fiyat}} ₺</h2>
                                         <p>{{$rs->ad}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <form action="{{route('user_sepet_ekle',['id' => $rs->id])}}" method="post">
+                                            @csrf
+                                            <input name="miktar" type="hidden" value="1">
+                                            <button type="submit"  class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
+                                        </form>
                                     </div>
-                                </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -87,15 +82,14 @@
                                         <a href="{{route('kitap', ['id'=> $rs->id, 'slug'=>$rs->slug])}}"> <img src="{{Storage::url($rs->resim)}}" alt="" /> </a>
                                         <h2>{{$rs->satis_fiyat}} ₺</h2>
                                         <p>{{$rs->ad}}</p>
-                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <form action="{{route('user_sepet_ekle',['id' => $rs->id])}}" method="post">
+                                            @csrf
+                                            <input name="miktar" type="hidden" value="1">
+                                            <button type="submit"  class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Sepete Ekle</button>
+                                        </form>
                                     </div>
                                 </div>
-                                <div class="choose">
-                                    <ul class="nav nav-pills nav-justified">
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                        <li><a href=""><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                                    </ul>
-                                </div>
+
                             </div>
                         </div>
                         @endforeach

@@ -11,6 +11,7 @@
                             <ul class="nav nav-pills">
                                 <li><a href="#"><i class="fa fa-phone"></i> {{$ayar->telefon}}</a></li>
                                 <li><a href="#"><i class="fa fa-envelope"></i> {{$ayar->email}}</a></li>
+                                <li>@include('front.mesaj')</li>
                             </ul>
                         </div>
                     </div>
@@ -47,7 +48,7 @@
                                     <li><a href="{{route('myprofile')}}"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a></li>
                                     <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
-                                    <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                    <li><a href="{{route('user_sepet')}}"><i class="fa fa-shopping-cart"></i> Sepetim</a></li>
                                     <li><a href="{{route('logout')}}"><i class="fa fa-lock"></i> Logout</a></li>
                                 @endauth
                                 @guest()
