@@ -70,4 +70,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(Sepet::class);
     }
+
+    public function siparis()
+    {
+        return $this->hasMany(Siparis::class);
+    }
+
+    public function siparisedilenler()
+    {
+        return $this->hasMany(Siparisedilenler::class);
+    }
 }

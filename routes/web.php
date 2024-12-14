@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Admin\MesajController;
 use App\Http\Controllers\SepetController;
+use App\Http\Controllers\SiparisController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
@@ -33,6 +34,21 @@ Route::middleware('auth')->prefix('user')->namespace('user')->group(function () 
         Route::post('ekle/{id}', [SepetController::class, 'store'])->name('user_sepet_ekle');
         Route::post('guncelle/{id}', [SepetController::class, 'update'])->name('user_sepet_guncelle');
         Route::get('sil/{id}', [SepetController::class, 'destroy'])->name('user_sepet_sil');
+    });
+
+    #Siparis
+    Route::prefix('siparis')->group(function () {
+        // Route assigned name "admin.users"...
+        Route::get('/', [SiparisController::class, 'index'])->name('user_siparisler');
+
+        Route::post('ekle', [SiparisController::class, 'create'])->name('user_siparis_ekle');
+
+        Route::post('kaydet', [SiparisController::class, 'store'])->name('user_siparis_kaydet');
+
+        Route::get('duzenle/{id}', [SiparisController::class, 'edit'])->name('user_siparis_duzenle');
+        Route::post('guncelle/{id}', [SiparisController::class, 'update'])->name('user_siparis_guncelle');
+        Route::get('sil/{id}', [SiparisController::class, 'destroy'])->name('user_siparis_sil');
+        Route::get('goster/{id}', [SiparisController::class, 'show'])->name('user_siparis_goster');
     });
 });
 

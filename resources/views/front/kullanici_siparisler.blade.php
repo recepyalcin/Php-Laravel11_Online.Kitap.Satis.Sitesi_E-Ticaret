@@ -1,6 +1,6 @@
 @extends('front.fmaster')
 
-@section('title', 'Sepetim')
+@section('title', 'Siparişlerim')
 
 @section('fheader')
     @include('front.fheader')
@@ -15,7 +15,7 @@
                 </div>
                 <section id="cart_items">
                     <div class="col-sm-10">
-                        <h2 class="title text-center">SEPETİM</h2>
+                        <h2 class="title text-center">SİPARİŞLERİM</h2>
                         <div class="table-responsive cart_info">
                             <table class="table table-condensed">
 
@@ -26,7 +26,8 @@
                                     <td class="price">Fiyat</td>
                                     <td class="quantity">Miktar</td>
                                     <td class="total">Toplam</td>
-                                    <td></td>
+                                    <td class="durum">Durum</td>
+                                    <td class="action">İşlem</td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -67,47 +68,28 @@
                                         <td class="cart_total">
                                             <p class="cart_total_price">{{ $rs->kitap->satis_fiyat * $rs->miktar}} ₺</p>
                                         </td>
+                                        <td>{{ $rs->durum}}</td>
                                         <td class="cart_delete">
                                             <a class="cart_quantity_delete"
                                                href="{{route('user_sepet_sil', ['id' => $rs->id])}}"
                                                onclick="return confirm('Silmek istediğinizden emin misiniz?')"><i
                                                     class="fa fa-times"></i></a>
                                         </td>
-                                    @php
-                                    $total += $rs->kitap->satis_fiyat * $rs->miktar;
-                                    @endphp
 
-                                        @endforeach
+
+                                        </td>
+
+                                @endforeach
 
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </section> <!--/#cart_items-->
-                <div class="row">
-                    <div class="col-sm-6 right">
-                    </div>
-                    <div class="col-sm-6 right">
-                        <div class="total_area">
-                            <ul>
-                                <li>Ara Toplam <span>{{$total}} ₺</span></li>
-                                <li>Kargo Ücreti <span>Free</span></li>
-                                <li>Toplam <span>{{$total}} ₺</span></li>
-                                <form action="{{route('user_siparis_ekle')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="total" value="{{$total}}">
-                                    <div class="pull-right">
-                                        <button type="submit" class="btn btn-default check_out">Sepeti Onayla</button>
-                                    </div>
-                                </form>
-                            </ul>
-
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
+
+
+        </div>
         </div>
     </section>
     <p> </p>
