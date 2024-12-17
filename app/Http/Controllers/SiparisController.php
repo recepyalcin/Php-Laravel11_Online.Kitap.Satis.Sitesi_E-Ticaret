@@ -13,7 +13,7 @@ class SiparisController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application
     {
         $datalist = Siparis::where('user_id',Auth::id())->get();
 
@@ -55,13 +55,14 @@ class SiparisController extends Controller
             $data2->fiyat = $rs->kitap->satis_fiyat;
             $data2->miktar = $rs->miktar;
             $data2->tutar = $rs->miktar * $rs->kitap->satis_fiyat;
+            $data2->resim = $rs->kitap->resim;
             $data2->save();
 
         }
         $data3 = Sepet::where('user_id', Auth::id());
         $data3->delete();
 
-        return redirect()->route('front.kullanici_siparisler')->with('success', 'Siparişiniz tamamlandı');
+        return redirect()->route('user_siparisler')->with('success', 'Siparişiniz tamamlandı');
 
 
 

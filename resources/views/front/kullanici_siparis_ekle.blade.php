@@ -40,9 +40,11 @@
                                             <input class="input" type="text" name="kartnumarasi"  value="" placeholder="Kart Numarası">
                                             <input class="input" type="text" name="tarih"  value="" placeholder="Son Kullanma Tarihi mm/yy">
                                             <input class="input" type="text" name="kod"  value="" placeholder="Güvenlik Kodu">
-                                            <div class="title text-center">
-                                                <a class="btn btn-primary"   href="">Siparişi Tamamla</a>
+
+                                            <div class="pull-right">
+                                                <button type="submit" class="btn btn-default check_out">Siparişi Tamamla</button>
                                             </div>
+
                                         </form>
                                     </div>
                                 </div>
