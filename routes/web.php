@@ -12,6 +12,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\HomeController as Home;
+use App\Http\Controllers\Admin\UserController as Users;
 
 Route::get('/', function () {
     return view('/home');
@@ -118,6 +119,20 @@ Route::middleware('auth')->group(callback: function () {
             Route::post('kaydet/{kitap_id}', [ImageController::class, 'store'])->name('admin_resim_kaydet');
             Route::get('sil/{id}/{kitap_id}', [ImageController::class, 'destroy'])->name('admin_resim_sil');
             Route::get('goster', [ImageController::class, 'show'])->name('admin_resim_goster');
+        });
+
+        Route::prefix('admin/user')->group(function () {
+            // Route assigned name "admin.users"...
+            Route::get('/', [Users::class, 'index'])->name('admin_users');
+            Route::post('ekle', [Users::class, 'create'])->name('admin_user_ekle');
+            Route::post('kaydet', [Users::class, 'store'])->name('admin_user_kaydet');
+            Route::get('duzenle/{id}', [Users::class, 'edit'])->name('admin_user_duzenle');
+            Route::post('guncelle/{id}', [Users::class, 'update'])->name('admin_user_guncelle');
+            Route::get('sil/{id}', [Users::class, 'destroy'])->name('admin_user_sil');
+            Route::get('goster/{id}', [Users::class, 'show'])->name('admin_user_goster');
+            Route::get('userrol/{id}', [Users::class, 'user_roller'])->name('admin_user_roller');
+            Route::post('userrolkaydet/{id}', [Users::class, 'user_role_store'])->name('admin_user_rol_ekle');
+            Route::get('userrolsil/{userid}/{rolid}', [Users::class, 'user_role_delete'])->name('admin_user_rol_sil');
         });
 
         // Ayar

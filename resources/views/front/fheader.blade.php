@@ -45,7 +45,8 @@
 
 
                                 @auth
-                                    <li><a href="{{route('myprofile')}}"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a></li>
+
+                                    <li><a href="{{route('myprofile')}}"><i class="fa fa-user"></i> {{ Auth::user()->name }}</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{Auth::user()->rollers()->pluck('name')}} </li>
                                     <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                                     <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
                                     <li><a href="{{route('user_sepet')}}"><i class="fa fa-shopping-cart"></i> Sepetim</a></li>

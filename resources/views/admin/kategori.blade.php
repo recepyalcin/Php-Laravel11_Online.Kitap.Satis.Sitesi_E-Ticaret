@@ -63,8 +63,8 @@
                                                         <td>{{$rs->resim}}</td>
                                                         <td>{{$rs->durum}}</td>
 
-                                                        <td><button type="button" class="btn btn-outline btn-warning"><a href="{{route('admin_kategori_duzenle', ['id' => $rs->id])}}"> Düzenle</a></button></td>
-                                                        <td><button type="button" class="btn btn-outline btn-danger"><a href="{{route('admin_kategori_sil', ['id' => $rs->id])}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')"  >Sil</a></button></td>
+                                                        <td style="text-align: center"><a href="{{route('admin_kategori_duzenle', ['id' => $rs->id])}}"><img src="{{asset('assest\admin\icon\duzenle.png')}}" height="25"> </a></td>
+                                                        <td style="text-align: center"><a href="{{route('admin_kategori_sil', ['id' => $rs->id])}}" onclick="return confirm('Silmek istediğinizden emin misiniz?')" ><img src="{{asset('assest\admin\icon\sil.png')}}" height="30"></a></td>
 
                                                     </tr>
                                                 @endforeach

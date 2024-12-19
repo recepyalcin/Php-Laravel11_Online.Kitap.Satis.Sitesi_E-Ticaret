@@ -8,7 +8,10 @@
                 <!-- user image section-->
                 <div class="user-section">
                     <div class="user-section-inner">
-                        <img src="{{asset('assest\admin\img\user.jpeg')}}" alt="">
+                        @if (Auth::user()->profile_photo_path)
+                            <img src="{{ Storage::url(Auth::user()->profile_photo_path)}}"
+                                 height="50" style="border-radius: 10px" alt="">
+                        @endif
                     </div>
                     <div class="user-info">
 
@@ -55,9 +58,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{route('admin_users')}}" class="nav-link">
 
-                    <p><img src="{{asset('assest\admin\icon\uyari.png')}}" height="20">  Uyarılar</p>
+                    <p><img src="{{asset('assest\admin\icon\users.png')}}" height="20">  Kullanıcılar</p>
                 </a>
             </li>
             <li class="nav-item">

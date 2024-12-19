@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Roller;
 
 class User extends Authenticatable
 {
@@ -79,5 +80,10 @@ class User extends Authenticatable
     public function siparisedilenler()
     {
         return $this->hasMany(Siparisedilenler::class);
+    }
+    use HasFactory;
+    public function rollers()
+    {
+        return $this->belongsToMany(Roller::class);
     }
 }
