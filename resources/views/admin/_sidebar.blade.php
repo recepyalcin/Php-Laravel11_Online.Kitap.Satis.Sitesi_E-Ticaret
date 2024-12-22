@@ -40,34 +40,52 @@
             </li>
 
             <li class="nav-item">
-                <a href="{{ route('admin_kategori') }}"><img src="{{asset('assest\admin\icon\kategori.png')}}" height="22">Kategoriler</a>
+                <a href="{{ route('admin_kategori') }}"><img src="{{asset('assest\admin\icon\kategori.png')}}" height="30">Kategoriler</a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('admin_kitap') }}"><img src="{{asset('assest\admin\icon\kitaplar.png')}}" height="22">Kitaplar</a>
+                <a href="{{ route('admin_kitap') }}"><img src="{{asset('assest\admin\icon\kitaplar.png')}}" height="30">Kitaplar</a>
             </li>
 
             <li class="nav-item"> </li>
             <li class="nav-item">
                 <a href="{{route('admin_ayar')}}" class="nav-link">
-                    <p class="text"><img src="{{asset('assest\admin\icon\ayar.png')}}" height="20">  Ayarlar</p>
+                    <p class="text"><img src="{{asset('assest\admin\icon\ayar.png')}}" height="30">  Ayarlar</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{route('admin_mesaj')}}" class="nav-link">
-                    <p class="text"><img src="{{asset('assest\admin\icon\mesaj.png')}}" height="20"> Mesajlar </p>
+                    <p class="text"><img src="{{asset('assest\admin\icon\mesaj.png')}}" height="30"> Mesajlar </p>
                 </a>
             </li>
             <li class="nav-item">
                 <a href="{{route('admin_users')}}" class="nav-link">
 
-                    <p><img src="{{asset('assest\admin\icon\users.png')}}" height="20">  Kullanıcılar</p>
+                    <p><img src="{{asset('assest\admin\icon\users.png')}}" height="30">  Kullanıcılar</p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-
-                    <p><img src="{{asset('assest\admin\icon\bilgi.png')}}" height="20">  Bilgi</p>
-                </a>
+            <li class="">
+                <a href=""><img src="{{asset('assest\admin\icon\siparis.png')}}" height="30">  Siparişler <span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level collapse" style="height: 0px;">
+                    <li>
+                        <a href="{{route('admin_siparisler')}}"> &nbsp &nbsp &nbsp Tüm Siparişler</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin_siparis_liste',['durum'=>'Yeni'])}}"> &nbsp &nbsp &nbsp Yeni Siparişler</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin_siparis_liste',['durum'=>'Onaylandı'])}}">  &nbsp &nbsp &nbsp Onaylanan Siparişler</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin_siparis_liste',['durum'=>'Kargolandı'])}}"> &nbsp &nbsp &nbsp Kargodaki Siparişler</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin_siparis_liste',['durum'=>'Tamamlandı'])}}"> &nbsp &nbsp &nbsp Tamamlanan Siparişler</a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin_siparis_liste',['durum'=>'İptal Edildi'])}}"> &nbsp &nbsp &nbsp Kargodaki Siparişler</a>
+                    </li>
+                </ul>
+                <!-- second-level-items -->
             </li>
 
         </ul>

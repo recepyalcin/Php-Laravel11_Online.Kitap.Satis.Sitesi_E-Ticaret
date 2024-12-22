@@ -1,3 +1,6 @@
+@php
+    $ayar=\App\Http\Controllers\HomeController::getayar();
+@endphp
 @extends('front.fmaster')
 
 @section('title', $ayar->baslik)

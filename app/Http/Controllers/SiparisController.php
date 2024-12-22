@@ -71,9 +71,12 @@ class SiparisController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Siparis $siparis)
+    public function show( $id)
     {
-        //
+        $datalist = Siparisedilenler::where('user_id', Auth::id())-> where( 'siparis_id', $id)->get();
+
+//        dd($datalist);
+        return view('front.kullanici_siparisedilenler', ['datalist' => $datalist]);
     }
 
     /**
@@ -87,9 +90,13 @@ class SiparisController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Siparis $siparis)
+    public function update(Request $request, Siparis $siparis, $id)
     {
-        //
+        $data = Siparis::find($id);
+        $data->durum = $request->input("durum");
+        $data->not = $request->input("not");
+        $data->save();
+
     }
 
     /**

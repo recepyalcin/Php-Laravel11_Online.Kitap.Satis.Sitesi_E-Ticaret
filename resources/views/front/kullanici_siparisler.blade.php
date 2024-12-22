@@ -24,14 +24,14 @@
                                         <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Address</th>
-                                            <th>total</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th style="width: 5px" colspan="2"> Actions</th>
+                                            <th>Ad Soyad</th>
+                                            <th>Telefon</th>
+                                            <th>E-mail</th>
+                                            <th>Adres</th>
+                                            <th>Toplam</th>
+                                            <th>Tarih</th>
+                                            <th>Durum</th>
+                                            <th style="width: 5px" colspan="2"> Detay</th>
 
                                         </tr>
                                         </thead>
@@ -45,16 +45,19 @@
                                                 <td>{{ $rs->adres}}</td>
                                                 <td>{{ $rs->toplam}}</td>
                                                 <td>{{ $rs->created_at}}</td>
-                                                <td>{{ $rs->durum}}</td>
-                                                <td><img src="{{asset('assest\admin\icon\siparis.png')}}/" height="15" alt=""></td>
+                                                <td style="text-align: center">{{ $rs->durum}}</td>
+                                                <td style="text-align: center"><a href="{{route('user_siparis_goster', ['id' => $rs->id])}}" ><img src="{{asset('assest/admin/icon/siparis.png')}}" height="30" alt=""></a></td>
                                             </tr>
                                         @endforeach
                                     </table>
                                 </div>
                                 <!-- /.card-body -->
                     </div>
+                    </div>
                 </section> <!--/#cart_items-->
             </div>
+
+
 
 
         </div>

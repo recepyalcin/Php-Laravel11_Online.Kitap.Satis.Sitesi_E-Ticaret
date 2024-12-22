@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('ad_soyad', 20);
             $table->string('email', 50);
+            $table->string('telefon', 50);
             $table->string('adres', 200);
             $table->float('toplam');
             $table->string('not', 150)->nullable();

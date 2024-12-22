@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\HomeController as Home;
 use App\Http\Controllers\Admin\UserController as Users;
+use App\Http\Controllers\Admin\SiparisController as AdminSiparisController;
 
 Route::get('/', function () {
     return view('/home');
@@ -104,7 +105,7 @@ Route::middleware('auth')->group(callback: function () {
             Route::get('sil/{id}', [KitapController::class, 'destroy'])->name('admin_kitap_sil');
             Route::get('goster', [KitapController::class, 'show'])->name('admin_kitap_goster');
         });
-
+#Mesaj
         Route::prefix('admin/mesaj')->group(function () {
             // Route assigned name "admin.users"...
             Route::get('/', [MesajController::class, 'index'])->name('admin_mesaj');
@@ -113,14 +114,14 @@ Route::middleware('auth')->group(callback: function () {
             Route::get('sil/{id}', [MesajController::class, 'destroy'])->name('admin_mesaj_sil');
             Route::get('goster', [MesajController::class, 'show'])->name('admin_mesaj_goster');
         });
-
+#Galeri
         Route::prefix('admin/resim')->group(function () {
             Route::get('ekle/{kitap_id}', [ImageController::class, 'create'])->name('admin_resim_ekle');
             Route::post('kaydet/{kitap_id}', [ImageController::class, 'store'])->name('admin_resim_kaydet');
             Route::get('sil/{id}/{kitap_id}', [ImageController::class, 'destroy'])->name('admin_resim_sil');
             Route::get('goster', [ImageController::class, 'show'])->name('admin_resim_goster');
         });
-
+#kullanıcı
         Route::prefix('admin/user')->group(function () {
             // Route assigned name "admin.users"...
             Route::get('/', [Users::class, 'index'])->name('admin_users');
@@ -133,6 +134,18 @@ Route::middleware('auth')->group(callback: function () {
             Route::get('userrol/{id}', [Users::class, 'user_roller'])->name('admin_user_roller');
             Route::post('userrolkaydet/{id}', [Users::class, 'user_role_store'])->name('admin_user_rol_ekle');
             Route::get('userrolsil/{userid}/{rolid}', [Users::class, 'user_role_delete'])->name('admin_user_rol_sil');
+        });
+        Route::prefix('admin/siparis')->group(function () {
+            // Route assigned name "admin.users"...
+            Route::get('/', [AdminSiparisController::class, 'index'])->name('admin_siparisler');
+            Route::get('liste/{durum}', [AdminSiparisController::class, 'list'])->name('admin_siparis_liste');
+            Route::post('ekle', [AdminSiparisController::class, 'create'])->name('admin_siparis_ekle');
+            Route::post('kaydet', [AdminSiparisController::class, 'store'])->name('admin_siparis_kaydet');
+            Route::get('duzenle/{id}', [AdminSiparisController::class, 'edit'])->name('admin_siparis_duzenle');
+            Route::post('guncelle/{id}', [AdminSiparisController::class, 'update'])->name('admin_siparis_guncelle');
+            Route::post('itemguncelleme/{id}', [AdminSiparisController::class, 'itemupdate'])->name('admin_siparis_item_guncelle');
+            Route::get('sil/{id}', [AdminSiparisController::class, 'destroy'])->name('admin_siparis_sil');
+            Route::get('goster/{id}', [AdminSiparisController::class, 'show'])->name('admin_siparis_goster');
         });
 
         // Ayar
